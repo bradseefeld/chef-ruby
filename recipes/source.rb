@@ -55,5 +55,5 @@ bash "install ruby" do
     make && make install
     gem update --system #{node.ruby.rubygems.version}
   EOH
-  not_if { ::File.exists?("#{node.ruby.source.install_path}/ruby") }
+  not_if { ::File.directory?("#{node.ruby.source.install_path}/ruby") }
 end
