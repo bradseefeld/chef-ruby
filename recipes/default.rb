@@ -20,4 +20,6 @@
 case node.ruby.install.downcase
 when "source"
   include_recipe "ruby::source"
+else
+  include_recipe "ruby::package"
 end
