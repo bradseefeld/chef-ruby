@@ -18,7 +18,14 @@
 #
 
 # Install all build dependencies
-packages = %w{build-essential libc6-dev libpq-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libxml2-dev libxslt-dev libyaml-dev}
+packages = case node["platform_family"]
+  when "debian"
+    %w{build-essential libc6-dev libpq-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libxml2-dev libxslt-dev libyaml-dev}
+  else
+    []
+  end
+end
+
 packages.each do |p|
   package p do
     action :install
