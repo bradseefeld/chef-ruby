@@ -22,7 +22,7 @@ packages = case node["platform_family"]
 when "debian"
   %w{build-essential libc6-dev libpq-dev libreadline6 libreadline6-dev zlib1g zlib1g-dev libssl-dev libxml2-dev libxslt-dev libyaml-dev}
 else
-  []
+  %w{openssl-devel}
 end
 
 packages.each do |p|
