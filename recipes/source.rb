@@ -44,7 +44,7 @@ bash "install yaml" do
     ./configure --prefix=#{node.ruby.yaml.install_path}
     make && make install
   EOH
-  not_if { ::File.exists?("/tmp/yaml-#{node.ruby.yaml.version}") }
+  not_if { ::File.exists?(node.ruby.yaml.install_path) }
 end
 
 remote_file "/tmp/ruby-#{node.ruby.version}.tar.gz" do
