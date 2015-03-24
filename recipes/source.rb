@@ -57,7 +57,7 @@ bash "install ruby" do
   code <<-EOH
     tar -xvf ruby-#{node.ruby.version}.tar.gz
     cd ruby-#{node.ruby.version}
-    ./configure --with-opt-dir=#{node.ruby.source.install_path} --disable-install-doc
+    ./configure --prefix=#{node.ruby.source.install_path} --disable-install-doc
     make && make install
     gem update --system #{node.ruby.rubygems.version}
   EOH
